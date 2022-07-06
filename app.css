@@ -51,3 +51,12 @@ nav {
 #home {
     border-top: 15px solid black;
 }
+
+#intro {
+    width: 50%;
+    word-break: normal;
+}
+
+#about-start {
+    margin-top: 75px;
+}
