@@ -40,10 +40,14 @@ nav {
 
 #welcome {
     background-image: url('./images/most_mem_bbpic.jpeg');
-    height: 600px;
+    height: 650px;
     width: 100%;
     background-position: center;
     background-size: cover;
     object-fit: contain;
     background-repeat: no-repeat;
+}
+
+#home {
+    border-top: 15px solid black;
 }
