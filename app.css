@@ -60,3 +60,16 @@ nav {
 #about-start {
     margin-top: 75px;
 }
+
+#profile-pic {
+    margin-bottom: 75px;
+}
+
+#prof-pic {
+    width: 300px;
+    height: 275px;
+}
+
+#resume {
+    border-top: 15px solid black;
+}
