@@ -72,4 +72,24 @@ nav {
 
 #resume {
     border-top: 15px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#resume-start {
+    margin-top: 75px;
+}
+
+#download-resume {
+    margin-bottom: 75px;
+}
+
+#projects {
+    border-top: 15px solid black;
+}
+
+#projects-start {
+    margin-top: 75px;
 }
