@@ -144,3 +144,12 @@ i {
     font-weight: bold;
     text-decoration: underline;
 }
+
+#my-contacts {
+    padding-bottom: 50px;
+}
+
+footer {
+    border-top: 15px solid black;
+    border-bottom: 2px solid black;
+}
