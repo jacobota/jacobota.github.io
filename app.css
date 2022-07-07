@@ -114,3 +114,33 @@ section {
 #projects-start {
     margin-top: 75px;
 }
+
+#contact {
+    border-top: 15px solid black;
+}
+
+#contact-start {
+    margin-top: 75px;
+}
+
+.col {
+    height: 100px;
+}
+
+i {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.row {
+    padding-top: 30px;
+}
+
+#email {
+    text-decoration: none;
+}
+
+#email:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
