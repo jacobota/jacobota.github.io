@@ -150,6 +150,7 @@ i {
 }
 
 footer {
-    border-top: 15px solid black;
-    border-bottom: 2px solid black;
+    border-top: 15px solid rgb(66, 66, 66);
+    border-bottom: 2px solid rgb(66, 66, 66);
+    background-color: rgb(66, 66, 66);
 }
