@@ -6,18 +6,21 @@
 }
 
 nav {
-    background: linear-gradient(130deg, rgb(10, 10, 10), rgb(230, 227, 227));
+    background: linear-gradient(130deg, rgb(73, 99, 218), rgb(236, 129, 6));
     height: 90px;
 }
 
+section {
+    background: linear-gradient(130deg, rgb(73, 99, 218), rgb(236, 129, 6));   
+}
+
 .navbar-brand {
-    color: white;
     font-size: 2.5rem;
     cursor: default;
 }
 
 .offcanvas {
-    background-color: rgb(230, 227, 227);
+    background-color: rgb(80, 80, 82);
 }
 
 .offcanvas-title {
@@ -53,16 +56,33 @@ nav {
 }
 
 #intro {
-    width: 50%;
-    word-break: normal;
+    border-radius: 15px;
+    font-size: 5vw;
+    font-family: 'Permanent Marker', sans-serif;
+    background: -webkit-linear-gradient(320deg, rgb(73, 99, 218), rgb(236, 129, 6));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 1.75s steps(100) 0.5ms;
+}
+
+@keyframes typing {
+    from { width: 0%; }
+    to { width: 90%; }
 }
 
 #about-start {
     margin-top: 75px;
 }
 
+#final-par {
+    margin-bottom: 50px;
+}
+
 #profile-pic {
-    margin-bottom: 75px;
+    padding-bottom: 75px;
 }
 
 #prof-pic {
@@ -84,6 +104,7 @@ nav {
 
 #download-resume {
     margin-bottom: 75px;
+    background-color: rgb(73, 99, 218);
 }
 
 #projects {
