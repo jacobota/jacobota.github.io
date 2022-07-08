@@ -12,7 +12,7 @@ nav {
 }
 
 main {
-    background: radial-gradient(rgb(236, 129, 6), rgb(73, 99, 218));   
+    background: linear-gradient(130deg, rgb(73, 99, 218), rgb(236, 129, 6));  
 }
 
 .navbar-brand {
@@ -43,7 +43,6 @@ main {
 }
 
 #welcome {
-    background-image: url('./images/most_mem_bbpic.jpeg');
     height: 650px;
     width: 100%;
     background-position: center;
@@ -60,7 +59,7 @@ main {
     border-radius: 15px;
     font-size: 5vw;
     font-family: 'Permanent Marker', sans-serif;
-    background: -webkit-linear-gradient(130deg, rgb(73, 99, 218), rgb(236, 129, 6));
+    background: -webkit-linear-gradient(310deg, rgb(73, 99, 218), rgb(236, 129, 6));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
