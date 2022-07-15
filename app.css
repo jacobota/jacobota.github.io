@@ -165,3 +165,26 @@ footer {
     border-bottom: 2px solid rgb(66, 66, 66);
     background-color: rgb(66, 66, 66);
 }
+
+#projectHeaderDark {
+    color: white !important;
+    text-decoration: underline;
+}
+
+#projectHeaderLight {
+    text-decoration: underline;
+}
+
+#projectTextDark {
+    color: white !important;
+}
+
+#project-img {
+    height: 200px;
+    width: 400px;
+    border-radius: 15px;
+}
+
+#border {
+    border-radius: 15px;
+}
