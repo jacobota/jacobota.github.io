@@ -150,10 +150,12 @@ i {
 
 #email:hover {
     font-weight: bold;
+    cursor: pointer;
 }
 
 #number:hover {
     font-weight: bold;
+    cursor: pointer;
 }
 
 #my-contacts {
