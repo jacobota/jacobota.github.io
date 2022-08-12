@@ -1,177 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Permanent+Marker&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/fcdee2a2d5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="app.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/fcdee2a2d5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="app.css" />
     <title>Jacob Ota | Website Portfolio</title>
-</head>
-<body>
+  </head>
+  <body>
     <!--NavBar-->
     <header>
-        <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top">
-            <a class="navbar-brand ms-3" style="color: white;" href="#">JACOB OTA</a>
-            <button class="navbar-toggler me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasLg" aria-labelledby="navbarOffcanvasLgLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" style="color: white;" id="offcanvasNavbarLabel">JO</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                  </div>
-                  <div class="offcanvas-body mt-4">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                      <li class="nav-item">
-                        <a class="nav-link active" style="color: white;" href="#home">ABOUT ME</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" style="color: white;" href="#resume">RESUME</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" style="color: white;"  href="#projects">PROJECTS</a>
-                      </li>
-                      <li class="nav-item">
-                            <a class="nav-link active" style="color: white;" href="#contact">CONTACT</a>
-                        </li>
-                    </ul>    
-                </div>
-            </div>
-        </nav>
+      <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top">
+        <a class="navbar-brand ms-3" style="color: white" href="#">JACOB OTA</a>
+        <button
+          class="navbar-toggler me-3"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#navbarOffcanvasLg"
+          aria-controls="navbarOffcanvasLg"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="navbarOffcanvasLg"
+          aria-labelledby="navbarOffcanvasLgLabel"
+        >
+          <div class="offcanvas-header">
+            <h5
+              class="offcanvas-title"
+              style="color: white"
+              id="offcanvasNavbarLabel"
+            >
+              JO
+            </h5>
+            <button
+              type="button"
+              class="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body mt-4">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" style="color: white" href="#home"
+                  >ABOUT ME</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" style="color: white" href="#resume"
+                  >RESUME</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" style="color: white" href="#projects"
+                  >PROJECTS</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" style="color: white" href="#contact"
+                  >CONTACT</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     <div class="buffer"></div>
     <!--NavBar-->
     <!--Welcome Image-->
     <main>
-        <div class="d-flex justify-content-center align-items-end" id="welcome">
-          <div class="bg-light" id="introContainer">
-            <p class="p-3 fw-bolder" id="intro">HI, MY NAME IS JACOB OTA! <br> WELCOME TO MY WEBSITE!</p>
+      <div class="d-flex justify-content-center align-items-end" id="welcome">
+        <div class="bg-light" id="introContainer">
+          <p class="p-3 fw-bolder" id="intro">
+            HI, MY NAME IS JACOB OTA! <br />
+            WELCOME TO MY WEBSITE!
+          </p>
+        </div>
+      </div>
+      <!--Welcome Image-->
+      <!--About me-->
+      <section id="home">
+        <p
+          class="fs-1 text-decoration-underline d-flex justify-content-center fw-bold"
+          id="about-start"
+          style="color: white"
+        >
+          ABOUT ME
+        </p>
+        <br />
+        <p class="ms-3 me-2 fs-3" style="color: white">
+          Hello, my name is Jacob Ota! I recently graduated with my B.S. in
+          Computer Science from the University of Puget Sound (UPS). And am
+          loooking forward to continuing my academics at Arizona State
+          University (ASU) in the fall for my Masters in Software Engineering.
+        </p>
+        <p class="ms-3 me-2 fs-3" style="color: white">
+          I actually switched my major to Computer Science before my junior year
+          of college. I instantly fell in love with it. The puzzle-solving
+          aspect and viewing the final product that all the projects presented
+          to me made me not only proud of what I can create, but also
+          challeneged me to get better and keep learning.
+        </p>
+        <p class="ms-3 me-2 fs-3" style="color: white">
+          While completing my Computer Science major within 2 years, I was also
+          challenged with balancing a Resident Assistant (RA) job and playing
+          collegiate baseball. Personally, I feel like this balance taught me a
+          lot about how to manage my time wisely. As an RA, I was tasked with
+          the care of residents, dealing with roommate conflicts, and how to
+          help individuals going through tough times.
+        </p>
+        <p class="ms-3 me-2 fs-3" style="color: white">
+          As a baseball player, I learned what hardwork, adversity, and most
+          importantly, what resiliency truly means. As a junior, I had a season
+          ending injury that knocked me down and gave me little hope to getting
+          back on a baseball field given I had a year left and recovery was
+          around 4/5 months, but through the hard work I put in through my rehab
+          process I was able to come out more resilient than ever and I found
+          out what I can do when I don't give up on myself.
+        </p>
+        <p class="ms-3 me-2 fs-3" id="final-par" style="color: white">
+          With how recent I changed to this new career path, I haven't truly
+          given myself the opportunity to apply myself in any real-world
+          experience with this field. However, I believe I am ready for this
+          opportunity and am currently looking for an opportunity as an entry
+          level software engineer to not only further my knowledge, but to also
+          gain some experience in this field.
+        </p>
+        <div class="d-flex justify-content-center" id="profile-pic">
+          <img
+            src="./images/prof_pic.jpeg"
+            class="img-fluid border border-4 border-dark"
+            alt="Profile Pic"
+            id="prof-pic"
+          />
+        </div>
+      </section>
+      <!--About me-->
+      <!--Resume-->
+      <section id="resume">
+        <p
+          class="fs-1 text-decoration-underline d-flex justify-content-center fw-bolder"
+          id="resume-start"
+          style="color: white"
+        >
+          RESUME
+        </p>
+        <br />
+        <img
+          src="./images/my_resume.png"
+          alt="My Resume"
+          class="img-fluid"
+          style="width: 65%"
+        />
+        <button class="mt-4" id="download-resume">
+          <a
+            href="./images/jacob_ota_resume.PDF"
+            download="Jacob Ota's Resume"
+            class="p-3 fs-3 text-decoration-none"
+            style="color: white"
+            >DOWNLOAD</a
+          >
+        </button>
+      </section>
+      <!--Resume-->
+      <!--Projects-->
+      <section id="projects">
+        <p
+          class="fs-1 text-decoration-underline d-flex justify-content-center fw-bold"
+          id="projects-start"
+          style="color: white"
+        >
+          PROJECTS
+        </p>
+        <div class="container-fluid mb-5">
+          <div class="row align-items-md-stretch">
+            <div class="col-sm-6 bg-dark p-4 mb-5" id="border">
+              <h1
+                class="fs-1 d-flex justify-content-center"
+                id="projectHeaderDark"
+              >
+                Project #1
+              </h1>
+              <div
+                class="d-flex justify-content-center flex-column align-items-center"
+              >
+                <p class="fs-3 mt-4 mb-4" id="projectTextDark">
+                  My Website: After finishing college, I decided to create
+                  myself my own website. Using HTML, CSS, Javascript and the
+                  Bootstrap framework I was able to put together this website to
+                  showcase myself, my resume, and other projects.
+                </p>
+                <img
+                  src="./images/website_screenshot.png"
+                  class="image-fluid border border-5 border-secondary mt-4"
+                  alt="Website Screenshot"
+                  id="project-img"
+                />
+              </div>
+            </div>
+            <div class="col-sm bg-light p-4 mb-5" id="border">
+              <h1
+                class="fs-1 d-flex justify-content-center"
+                id="projectHeaderLight"
+              >
+                Project #2
+              </h1>
+              <div
+                class="d-flex justify-content-center flex-column align-items-center"
+              >
+                <p class="fs-3 mt-4 mb-4">
+                  Capstone Project: With a group we created a Lost and Found web
+                  application that would connect users to help users return
+                  their lost or found items. Working for the frontend side of
+                  this project I was tasked with UI design of the profile page
+                  and navigation bar. Click on Pic:
+                </p>
+                <a href="http://54.202.53.184/LostCapstone/Webapp/index.html">
+                  <img
+                    src="./images/Lost_found.png"
+                    class="image-fluid border border-5 border-dark mt-4 mb-4"
+                    alt="Lost and Found Screenshot"
+                    id="project-img"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="col-sm bg-light p-4 mb-5" id="border">
+              <h1
+                class="fs-1 d-flex justify-content-center"
+                id="projectHeaderLight"
+              >
+                Project #3
+              </h1>
+              <div
+                class="d-flex justify-content-center flex-column align-items-center"
+              >
+                <p class="fs-3 mt-4 mb-4">
+                  Pitch Tracker: My first time using React to create an app.
+                  This web app is used to track stats, tendencies of pitchers
+                  and hot zones of hitters to be analyzed by coaches, parents,
+                  fans and players to hopefully benefit the players and give an
+                  insight into stats and tendencies.
+                </p>
+                <img
+                  src="./images/pitchtracker.png"
+                  class="image-fluid border border-5 border-dark mb-5 mt-4"
+                  alt="Website Screenshot"
+                  id="project-img"
+                />
+              </div>
+            </div>
+            <div class="col-sm bg-dark p-4 mb-5" id="border">
+              <h1
+                class="fs-1 d-flex justify-content-center"
+                id="projectHeaderDark"
+              >
+                Project #4
+              </h1>
+              <div
+                class="d-flex justify-content-center flex-column align-items-center"
+                id="projectTextDark"
+              >
+                <p class="fs-3 mt-4 mb-4">
+                  Trucha Fly Fishing Website: Currently in the works. I was
+                  tasked by Trucha Fly Fishing Guide Services to create a
+                  website for the owner. Using React again to further my
+                  knowledge of the tool, and first time being tasked outside of
+                  school or myself to work on a project.
+                </p>
+                <img
+                  src="./images/trucha_website.png"
+                  class="image-fluid border border-5 border-secondary mb-5 mt-4"
+                  alt="Website Screenshot"
+                  id="project-img"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <!--Welcome Image-->
-        <!--About me-->
-        <section id="home">
-            <p class="fs-1 text-decoration-underline d-flex justify-content-center fw-bold" id="about-start" style="color: white;">ABOUT ME</p>
-            <br>
-            <p class="ms-3 me-2 fs-3" style="color: white;">Hello, my name is Jacob Ota! I recently graduated with my B.S. in Computer Science from the University of Puget Sound (UPS). And am loooking forward to continuing my academics at Arizona State University (ASU) in the fall for my Masters in Software Engineering.</p>
-            <p class="ms-3 me-2 fs-3" style="color: white;">I actually switched my major to Computer Science before my junior year of college. I instantly fell in love with it. The puzzle-solving aspect and viewing the final product that all the projects presented to me made me not only proud of what I can create, but also challeneged me to get better and keep learning.</p>
-            <p class="ms-3 me-2 fs-3" style="color: white;">While completing my Computer Science major within 2 years, I was also challenged with balancing a Resident Assistant (RA) job and playing collegiate baseball. Personally, I feel like this balance taught me a lot about how to manage my time wisely. As an RA, I was tasked with the care of residents, dealing with roommate conflicts, and how to help individuals going through tough times.</p>
-            <p class="ms-3 me-2 fs-3" style="color: white;">As a baseball player, I learned what hardwork, adversity, and most importantly, what resiliency truly means. As a junior, I had a season ending injury that knocked me down and gave me little hope to getting back on a baseball field given I had a year left and recovery was around 4/5 months, but through the hard work I put in through my rehab process I was able to come out more resilient than ever and I found out what I can do when I don't give up on myself.</p>
-            <p class="ms-3 me-2 fs-3" id="final-par" style="color: white;">With how recent I changed to this new career path, I haven't truly given myself the opportunity to apply myself in any real-world experience with this field. However, I believe I am ready for this opportunity and am currently looking for an opportunity as an entry level software engineer to not only further my knowledge, but to also gain some experience in this field.</p>
-            <div class="d-flex justify-content-center" id="profile-pic">
-                <img src="./images/prof_pic.jpeg" class="img-fluid border border-4 border-dark" alt="Profile Pic" id="prof-pic">
+      </section>
+      <!--Projects-->
+      <!--Contact-->
+      <section id="contact">
+        <p
+          class="fs-1 text-decoration-underline d-flex justify-content-center fw-bold"
+          id="projects-start"
+          style="color: white"
+        >
+          CONTACT
+        </p>
+        <div class="container" id="my-contacts">
+          <div class="row">
+            <div
+              class="col-sm d-flex align-items-center justify-content-center"
+            >
+              <i class="fa-solid fa-phone" style="color: rgb(25, 196, 25)"></i>
+              <p
+                class="fs-4 ms-2 mt-2"
+                style="color: white; text-decoration: underline"
+                id="number"
+              >
+                (714)-881-9582
+              </p>
             </div>
-        </section>
-        <!--About me-->
-        <!--Resume-->
-        <section id="resume">
-            <p class="fs-1 text-decoration-underline d-flex justify-content-center fw-bolder" id="resume-start" style="color: white;">RESUME</p>
-            <br>
-            <img src="./images/resume_pic.png" alt="My Resume" class="img-fluid" style="width:65%;">
-            <button class="mt-4" id="download-resume"><a href="./images/jacob_ota_resume.PDF" download="Jacob Ota's Resume" class="p-3 fs-3 text-decoration-none" style="color: white;">DOWNLOAD</a></button>
-        </section>
-        <!--Resume-->
-        <!--Projects-->
-        <section id="projects">
-          <p class="fs-1 text-decoration-underline d-flex justify-content-center fw-bold" id="projects-start" style="color: white;">PROJECTS</p>
-          <div class="container-fluid mb-5">
-            <div class="row align-items-md-stretch">
-              <div class="col-sm-6 bg-dark p-4 mb-5" id="border">
-                <h1 class="fs-1 d-flex justify-content-center" id="projectHeaderDark">Project #1</h1>
-                <div class="d-flex justify-content-center flex-column align-items-center">
-                  <p class="fs-3 mt-4 mb-4" id="projectTextDark">My Website: After finishing college, I decided to create myself my own website. Using HTML, CSS, Javascript and the Bootstrap framework I was able to put together this website to showcase myself, my resume, and other projects.</p>
-                  <img src="./images/website_screenshot.png" class="image-fluid border border-5 border-secondary mt-4" alt="Website Screenshot" id="project-img">
-                </div>
-              </div>
-              <div class="col-sm bg-light p-4 mb-5" id="border">
-                <h1 class="fs-1 d-flex justify-content-center" id="projectHeaderLight">Project #2</h1>
-                <div class="d-flex justify-content-center flex-column align-items-center">
-                  <p class="fs-3 mt-4 mb-4">Capstone Project: With a group we created a Lost and Found web application that would connect users to help users return their lost or found items. Working for the frontend side of this project I was tasked with UI design of the profile page and navigation bar. Click on Pic:</p>
-                  <a href="http://54.202.53.184/LostCapstone/Webapp/index.html">
-                    <img src="./images/Lost_found.png" class="image-fluid border border-5 border-dark mt-4 mb-4" alt="Lost and Found Screenshot" id="project-img">
-                  </a>
-                </div>
-              </div>
-              <div class="col-sm bg-light p-4 mb-5" id="border">
-                <h1 class="fs-1 d-flex justify-content-center" id="projectHeaderLight">Project #3</h1>
-                <div class="d-flex justify-content-center flex-column align-items-center">
-                  <p class="fs-3 mt-4 mb-4">Pitch Tracker: Currently in the works. This is the first time I am using React to create an app. This web app is used to track stats, tendencies of pitchers and hot zones of hitters to be analyzed by coaches, parents, fans and players to hopefully benefit the players.</p>
-                  <img src="./images/pitchtracker.png" class="image-fluid border border-5 border-dark mb-5 mt-4" alt="Website Screenshot" id="project-img">
-                </div>
-              </div>
-              <div class="col-sm bg-dark p-4 mb-5" id="border">
-                <h1 class="fs-1 d-flex justify-content-center" id="projectHeaderDark">Future Ideas</h1>
-                <div class="d-flex justify-content-center flex-column align-items-center" id="projectTextDark">
-                  <p class="fs-3 mt-4 mb-4">Diet/Recipe Book App</p>
-                  <p class="fs-3 mt-4 mb-4">More ideas on the way</p>
-                </div>
-              </div>
+            <div
+              class="col-sm d-flex align-items-center justify-content-center"
+            >
+              <i
+                class="fa-solid fa-envelope"
+                style="color: rgb(36, 208, 231)"
+              ></i>
+              <p class="fs-4 ms-2 mt-2">
+                <a
+                  href="mailto:otajacob@yahoo.com"
+                  style="color: white; text-decoration: underline"
+                  id="email"
+                  >otajacob@yahoo.com</a
+                >
+              </p>
             </div>
           </div>
+          <div class="row row-cols-2">
+            <div
+              class="col-sm d-flex align-items-center justify-content-center mt-4"
+            >
+              <i class="fa-brands fa-linkedin" style="color: #076091"></i>
+            </div>
+            <div
+              class="col-sm d-flex align-items-center justify-content-center mt-4"
+            >
+              <i class="fa-brands fa-twitter" style="color: #1893e0"></i>
+            </div>
+            <div
+              class="col-sm d-flex align-items-center justify-content-center mt-4"
+            >
+              <i class="fa-brands fa-github" style="color: #6e5494"></i>
+            </div>
+            <div
+              class="col-sm d-flex align-items-center justify-content-center mt-4"
+            >
+              <i
+                class="fa-brands fa-instagram"
+                style="color: rgb(150, 15, 150)"
+              ></i>
+            </div>
+          </div>
+        </div>
       </section>
-        <!--Projects-->
-        <!--Contact-->
-        <section id="contact">
-            <p class="fs-1 text-decoration-underline d-flex justify-content-center fw-bold" id="projects-start" style="color: white;">CONTACT</p>
-            <div class="container" id="my-contacts">
-                <div class="row">
-                  <div class="col-sm d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-phone" style="color: rgb(25, 196, 25);"></i>
-                    <p class="fs-4 ms-2 mt-2" style="color: white; text-decoration: underline;" id="number">(714)-881-9582</p>
-                  </div>
-                  <div class="col-sm d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-envelope" style="color: rgb(36, 208, 231);"></i>
-                    <p class="fs-4 ms-2 mt-2"><a href="mailto:otajacob@yahoo.com" style="color: white; text-decoration: underline;" id="email">otajacob@yahoo.com</a></p>
-                  </div>
-                </div>
-                <div class="row row-cols-2">
-                  <div class="col-sm d-flex align-items-center justify-content-center mt-4">
-                    <i class="fa-brands fa-linkedin" style="color:#076091;"></i>
-                  </div>
-                  <div class="col-sm d-flex align-items-center justify-content-center mt-4">
-                    <i class="fa-brands fa-twitter" style="color: #1893e0;"></i>
-                  </div>
-                  <div class="col-sm d-flex align-items-center justify-content-center mt-4">
-                    <i class="fa-brands fa-github" style="color: #6e5494;"></i>
-                  </div>
-                  <div class="col-sm d-flex align-items-center justify-content-center mt-4">
-                    <i class="fa-brands fa-instagram" style="color:rgb(150, 15, 150);"></i>
-                  </div>
-                </div>
-              </div>
-        </section>
-        <!--Contact-->
-        <!--Footer-->
-        <footer>
-            <div class="row justify-content-around">
-                <div class="col-4 ms-5">
-                  <p style="font-size: 3rem; color:white;">JO</p>
-                </div>
-                <div class="col-5">
-                    <ul class="nav justify-content-center">
-                        <li class="nav-link mt-1">
-                            <a href="#home" style="color: white; text-decoration: none; font-size: 1.5rem;">ABOUT ME</a>
-                        </li>
-                        <li class="nav-link mt-1">
-                            <a href="#resume" style="color: white; text-decoration: none; font-size: 1.5rem;">RESUME</a>
-                        </li>
-                        <li class="nav-link mt-1">
-                            <a href="#projects" style="color: white; text-decoration: none; font-size: 1.5rem;">PROJECTS</a>
-                        </li>
-                        <li class="nav-link mt-1">
-                            <a href="#contact" style="color: white; text-decoration: none; font-size: 1.5rem;">CONTACT</a>
-                        </li>
-                    </ul>
-                </div>
-              </div>
-        </footer>
+      <!--Contact-->
+      <!--Footer-->
+      <footer>
+        <div class="row justify-content-around">
+          <div class="col-4 ms-5">
+            <p style="font-size: 3rem; color: white">JO</p>
+          </div>
+          <div class="col-5">
+            <ul class="nav justify-content-center">
+              <li class="nav-link mt-1">
+                <a
+                  href="#home"
+                  style="color: white; text-decoration: none; font-size: 1.5rem"
+                  >ABOUT ME</a
+                >
+              </li>
+              <li class="nav-link mt-1">
+                <a
+                  href="#resume"
+                  style="color: white; text-decoration: none; font-size: 1.5rem"
+                  >RESUME</a
+                >
+              </li>
+              <li class="nav-link mt-1">
+                <a
+                  href="#projects"
+                  style="color: white; text-decoration: none; font-size: 1.5rem"
+                  >PROJECTS</a
+                >
+              </li>
+              <li class="nav-link mt-1">
+                <a
+                  href="#contact"
+                  style="color: white; text-decoration: none; font-size: 1.5rem"
+                  >CONTACT</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
     </main>
     <!--Scripts-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
