@@ -1,0 +1,30 @@
+body {
+    background: url('../images/contact_page.png') no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+  
+.layer {
+    background-color: rgba(48,55,82, 1);
+    top: 0%;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    animation: background-load 3s ease-in 1s forwards;
+}
+
+@keyframes background-load {
+    0% {
+        background-color: rgba(48,55,82, 1);
+    }
+    100% {
+        background-color: rgba(48,55,82, 0.85) 
+    }
+}
+
+.test {
+    margin-top: 10000px;
+}
