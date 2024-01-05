@@ -17,7 +17,7 @@ for(let i = 0; i < list.length; i++) {
         if(list[i].textContent.toLowerCase() != "home") {
             myUrl = `../pages/${list[i].textContent.toLowerCase()}.html`;
         } else {
-            myUrl = "../pages/index.html";
+            myUrl = "../index.html";
         }
         header.animate(headerAnimation, headerDuration);
         header.style.transform = "translateY(-100%)";
