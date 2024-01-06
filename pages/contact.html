@@ -1,30 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jacob Ota Portfolio Website</title>
-  <link rel="stylesheet" href="../css/app.css">
-  <link rel="stylesheet" href="../css/contact.css">
-</head>
-<body>
-  <header id="header">
-    <div id="logo"><p>Contact Information</p></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jacob Ota Portfolio Website</title>
+    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="../css/contact.css" />
+    <script
+      src="https://kit.fontawesome.com/fcdee2a2d5.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header id="header">
+      <div id="logo"><p>Contact Information</p></div>
 
-    <nav class="navbar">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Resume</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Resume</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="content-holder">
+      <div class="contain-all">
+        <div class="contact-info-container">
+          <div>
+            <h1 class="title">Contact Information</h1>
+          </div>
+          <br />
+          <div class="button-container">
+            <div class="btn">
+              <a href="mailto:otajacob@yahoo.com"><span>Email</span></a>
+            </div>
+          </div>
+          <div class="button-container">
+            <div class="btn">
+              <a href="tel:+7148819582"><span>Phone</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="social-media-container">
+          <div>
+            <h1 class="title">Social Media</h1>
+          </div>
+          <div class="button-container">
+            <div class="btn">
+              <a href="https://www.linkedin.com/in/jacob-ota-902511224/"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+            </div>
+            <div class="btn">
+              <a href="https://github.com/jacobota"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+            </div>
+            <div class="btn">
+              <a href="https://twitter.com/jacoby_oats"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+            </div>
+            <div class="btn">
+              <a href="https://www.instagram.com/jacob_ota/"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div id="picture-slider-container" draggable="false">
+          <div class="hider-left" draggable="false">
+            <h1>Slide Me</h1>
+            <h1>&gt;&gt;&gt;</h1>
+          </div>
+          <div
+            id="image-track"
+            data-mouse-down-at="0"
+            data-prev-percentage="0"
+            draggable="false"
+          >
+            <img
+              class="image"
+              src="../images/me_and_jax.jpeg"
+              draggable="false"
+            />
+            <img
+              class="image"
+              src="../images/Grad_Pics.jpg"
+              draggable="false"
+            />
+            <img
+              class="image"
+              src="../images/gi_and_me.jpg"
+              draggable="false"
+            />
+            <img
+              class="image"
+              src="../images/Chambers_Gi.jpg"
+              draggable="false"
+            />
+            <img
+              class="image"
+              src="../images/Chambers_Everyone.jpg"
+              draggable="false"
+            />
+            <img
+              class="image"
+              src="../images/HS_Baseball.JPG"
+              draggable="false"
+            />
+            <img
+              class="image"
+              src="../images/Portland_Game.jpg"
+              draggable="false"
+            />
+            <img class="image" src="../images/clay.jpg" draggable="false" />
+            <img
+              class="image"
+              src="../images/clank_helmets.JPG"
+              draggable="false"
+            />
+            <img class="image" src="../images/boat.jpg" draggable="false" />
+          </div>
+          <div class="hider-right" draggable="false">
+            <h1>Slide Me</h1>
+            <h1>&lt;&lt;&lt;</h1>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="layer"></div>
-
-  <p class="test">Hello</p>
-  <script src="../js/contact.js"></script>
-</body>
+    <div class="layer"></div>
+    <script src="../js/contact.js"></script>
+  </body>
 </html>

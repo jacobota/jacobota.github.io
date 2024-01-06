@@ -36,3 +36,35 @@ const headerDuration = {
     duration: 1000,
     iterations: 1
 }
+
+//Picture Image Track Slider Functionality
+//Inspiration from Hyperplexed Youtube Channel
+
+const container = document.getElementById("picture-slider-container")
+const track = document.getElementById("image-track")
+
+container.onmousedown = e => {
+    track.dataset.mouseDownAt = e.clientX;
+}
+
+container.onmouseup = () => {
+    track.dataset.mouseDownAt = "0";
+    track.dataset.prevPercentage = track.dataset.percentage;
+}
+
+container.onmousemove = e => {
+    if(track.dataset.mouseDownAt === "0") {return;}
+
+    const mouseChange = parseFloat(track.dataset.mouseDownAt) - e.clientX
+    const maxChange = window.innerWidth / 2;
+
+    const percentage = (mouseChange / maxChange) * -100
+    const continuePercentage = parseFloat(track.dataset.prevPercentage) + percentage;
+    const nextPercentage = Math.max(Math.min(continuePercentage, -10), -240);
+
+    track.dataset.percentage = nextPercentage;
+
+    track.animate ({
+        transform: `translate(${nextPercentage}%)`
+    }, {duration: 1000, fill: "forwards"});
+}
