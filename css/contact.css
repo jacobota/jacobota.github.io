@@ -143,6 +143,7 @@ body {
 .image {
   width: 40vmin;
   height: 95%;
+  border-radius: 15px;
   object-fit: cover;
   object-position: 50% 50%;
   user-select: none;

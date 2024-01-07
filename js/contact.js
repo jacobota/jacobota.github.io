@@ -69,26 +69,29 @@ container.onmousemove = e => {
     }, {duration: 1000, fill: "forwards"});
 }
 
-//mobile touchmove
+//mobile version
 
 container.ontouchstart = e => {
-    track.dataset.mouseDownAt = e.clientX;
+    track.dataset.touchDownAt = e.touches[0].clientX;
+    console.log("working")
 }
 
 container.ontouchend = () => {
-    track.dataset.mouseDownAt = "0";
+    track.dataset.touchDownAt = "0";
     track.dataset.prevPercentage = track.dataset.percentage;
 }
 
 container.ontouchmove = e => {
-    if(track.dataset.mouseDownAt === "0") {return;}
+    if(track.dataset.touchDownAt === "0") {return;}
 
-    const mouseChange = parseFloat(track.dataset.mouseDownAt) - e.clientX
+    const mouseChange = parseFloat(track.dataset.touchDownAt) - e.touches[0].clientX
     const maxChange = window.innerWidth / 2;
+
+    console.log(track.dataset.touchDownAt)
 
     const percentage = (mouseChange / maxChange) * -100
     const continuePercentage = parseFloat(track.dataset.prevPercentage) + percentage;
-    const nextPercentage = Math.max(Math.min(continuePercentage, -10), -240);
+    const nextPercentage = Math.max(Math.min(continuePercentage, -10), -550);
 
     track.dataset.percentage = nextPercentage;
 
@@ -96,3 +99,12 @@ container.ontouchmove = e => {
         transform: `translate(${nextPercentage}%)`
     }, {duration: 1000, fill: "forwards"});
 }
+
+//prevent default behavior
+container.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+})
+
+container.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+})
