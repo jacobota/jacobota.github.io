@@ -1,5 +1,5 @@
 body {
-  background: url('../images/resume_back.jpg') no-repeat;
+  background: url("../images/resume_back.jpg") no-repeat;
   width: 100%;
   height: 100vh;
   background-position: center;
@@ -17,12 +17,12 @@ body {
 }
 
 @keyframes background-load {
-    0% {
-        background-color: rgba(48,55,82, 1);
-    }
-    100% {
-        background-color: rgba(48,55,82, 0.85) 
-    }
+  0% {
+    background-color: rgba(48, 55, 82, 1);
+  }
+  100% {
+    background-color: rgba(48, 55, 82, 0.85);
+  }
 }
 
 .center {
@@ -36,7 +36,7 @@ body {
 
 .text-resume {
   opacity: 0;
-  font-size: 3rem;
+  font-size: 50pt;
   animation: resume-text-load 4s ease-in-out 2s forwards;
 }
 
@@ -66,6 +66,10 @@ body {
 }
 
 .bottom-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   position: absolute;
   font-size: 20pt;
   top: 80%;
@@ -88,10 +92,10 @@ body {
 }
 
 .bouncing-arrows {
-  position:absolute;
+  position: absolute;
   top: 90%;
   font-size: 36pt;
-  left:50%;
+  left: 50%;
   transform: translate(-50%, -50%) rotateZ(270deg);
   opacity: 0;
   animation: arrow-load 4s ease-in-out 3.5s forwards;
@@ -106,23 +110,25 @@ body {
   }
 }
 
-.arrow-anim :nth-child(1){
+.arrow-anim :nth-child(1) {
   animation: arrow-bounce 3s ease-in infinite;
 }
 
-.arrow-anim :nth-child(2){
-  animation: arrow-bounce 3s ease-in infinite .67s;
+.arrow-anim :nth-child(2) {
+  animation: arrow-bounce 3s ease-in infinite 0.67s;
 }
 
-.arrow-anim :nth-child(3){
+.arrow-anim :nth-child(3) {
   animation: arrow-bounce 3s ease-in infinite 1.25s;
 }
 
 @keyframes arrow-bounce {
-  0%, 33% {
+  0%,
+  33% {
     transform: translate(10%);
   }
-  5%, 75% {
+  5%,
+  75% {
     transform: translate(30%);
   }
   100% {
@@ -134,4 +140,23 @@ body {
   position: absolute;
   top: 105%;
   padding-bottom: 2%;
+}
+
+@media (max-width: 767px) {
+  .text-resume {
+    font-size: 20pt;
+  }
+
+  .button-container a {
+    width: 100px;
+    font-size: 10pt;
+  }
+
+  .bottom-slider {
+    font-size: 10pt;
+  }
+
+  .bouncing-arrows {
+    font-size: 15pt;
+  }
 }
