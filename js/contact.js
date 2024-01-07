@@ -73,7 +73,6 @@ container.onmousemove = e => {
 
 container.ontouchstart = e => {
     track.dataset.touchDownAt = e.touches[0].clientX;
-    console.log("working")
 }
 
 container.ontouchend = () => {
@@ -86,8 +85,6 @@ container.ontouchmove = e => {
 
     const mouseChange = parseFloat(track.dataset.touchDownAt) - e.touches[0].clientX
     const maxChange = window.innerWidth / 2;
-
-    console.log(track.dataset.touchDownAt)
 
     const percentage = (mouseChange / maxChange) * -100
     const continuePercentage = parseFloat(track.dataset.prevPercentage) + percentage;
@@ -106,5 +103,13 @@ container.addEventListener("touchstart", (e) => {
 })
 
 container.addEventListener("touchmove", (e) => {
+    e.preventDefault();
+})
+
+document.getElementsByTagName("body").addEventListener("touchstart", (e) => {
+    e.preventDefault();
+})
+
+document.getElementsByTagName("body").addEventListener("touchmove", (e) => {
     e.preventDefault();
 })
