@@ -147,3 +147,49 @@ body {
   object-position: 50% 50%;
   user-select: none;
 }
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 10pt;
+  }
+
+  .contain-all {
+    margin-left: 5%;
+    height: 150vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .social-media-container {
+    height: 40vh;
+    margin-bottom: -10%;
+    width: 90%;
+  }
+
+  .contact-info-container {
+    margin-bottom: -10%;
+    margin-top: 0%;
+    height: 30vh;
+    width: 90%;
+  }
+
+  #picture-slider-container {
+    height: 40vh;
+    width: 90%;
+  }
+
+  .social-media-container .button-container .btn a {
+    width: 50px;
+  }
+
+  .hider-left {
+    display: none;
+    width: 0%;
+  }
+
+  .hider-right {
+    display: none;
+    width: 0%;
+  }
+}
