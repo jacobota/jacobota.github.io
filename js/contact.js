@@ -68,3 +68,31 @@ container.onmousemove = e => {
         transform: `translate(${nextPercentage}%)`
     }, {duration: 1000, fill: "forwards"});
 }
+
+//mobile touchmove
+
+container.ontouchstart = e => {
+    track.dataset.mouseDownAt = e.clientX;
+}
+
+container.ontouchend = () => {
+    track.dataset.mouseDownAt = "0";
+    track.dataset.prevPercentage = track.dataset.percentage;
+}
+
+container.ontouchmove = e => {
+    if(track.dataset.mouseDownAt === "0") {return;}
+
+    const mouseChange = parseFloat(track.dataset.mouseDownAt) - e.clientX
+    const maxChange = window.innerWidth / 2;
+
+    const percentage = (mouseChange / maxChange) * -100
+    const continuePercentage = parseFloat(track.dataset.prevPercentage) + percentage;
+    const nextPercentage = Math.max(Math.min(continuePercentage, -10), -240);
+
+    track.dataset.percentage = nextPercentage;
+
+    track.animate ({
+        transform: `translate(${nextPercentage}%)`
+    }, {duration: 1000, fill: "forwards"});
+}
