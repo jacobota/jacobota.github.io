@@ -96,7 +96,8 @@ header {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 70%;
+  padding: 5%;
+  width: 90%;
   animation: text-load 2.5s ease-in-out 2s forwards;
 }
 
@@ -111,7 +112,7 @@ header {
 
 .home-content {
   max-width: 75%;
-  margin-top: 4%;
+  padding: 5%;
 }
 
 .home-content h1 {
@@ -184,32 +185,7 @@ header {
   width: 100%;
 }
 
-.design-box {
-  top: 27%;
-  opacity: 0.75;
-  text-align: center;
-  position: absolute;
-  width: 550px;
-  height: 550px;
-  border: 50px solid #404969;
-  z-index: -1;
-  transform: translateX(50%), translateY(-200%);
-  animation: box-bounce 3s ease-in-out 2s forwards;
-}
-
-@keyframes box-bounce {
-  0% {
-    transform: translateX(50%) translateY(-200%);
-  }
-
-  100% {
-    transform: translateX(0%) translateY(0%);
-    rotate: -675deg;
-  }
-}
-
 .home-picture {
-  position: absolute;
   left: 70%;
   background: radial-gradient(#3037523f, #30375227, #30375298, #303752, #303752),
     url(../images/home_image.png) no-repeat;
@@ -217,4 +193,26 @@ header {
   height: 80vh;
   background-position: center;
   background-size: contain;
+}
+
+@media (max-width: 767px) {
+  .home {
+    flex-direction: column-reverse;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-content {
+    max-width: 100%;
+  }
+
+  .home-picture {
+    width: 60%;
+  }
+
+  .button-container a {
+    width: 100px;
+  }
 }
