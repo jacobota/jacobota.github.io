@@ -189,7 +189,7 @@ header {
 .home-picture {
   background: no-repeat;
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: 45% 50%;
   width: 20%;
   height: 60vh;
   background-position: center;
