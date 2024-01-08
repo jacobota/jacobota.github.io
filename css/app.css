@@ -91,6 +91,7 @@ header {
 }
 
 .home {
+  margin-top: -5%;
   opacity: 0;
   display: flex;
   flex-wrap: wrap;
