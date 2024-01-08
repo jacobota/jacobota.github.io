@@ -37,3 +37,20 @@ const headerDuration = {
     duration: 1000,
     iterations: 1
 }
+
+//scroll on slide animation
+window.addEventListener("scroll", () => {
+    var sections = document.getElementsByClassName('section');
+    
+    for(let i = 0; i < sections.length; i++) {
+        let height = window.innerHeight;
+        let sectionTop = sections[i].getBoundingClientRect().top;
+        let revealSection = 150;
+
+        if(sectionTop < height - revealSection) {
+            sections[i].classList.add('revealed');
+        } else {
+            sections[i].classList.remove('revealed');
+        }
+    }
+})

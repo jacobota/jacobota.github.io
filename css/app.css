@@ -187,8 +187,9 @@ header {
 }
 
 .home-picture {
-  background: radial-gradient(#3037523f, #30375227, #30375298, #303752, #303752),
-    url(../images/home_image.png) no-repeat;
+  background: no-repeat;
+  object-fit: cover;
+  object-position: 45% 50%;
   width: 20%;
   height: 60vh;
   background-position: center;
@@ -211,6 +212,7 @@ header {
   }
 
   .home-picture {
+    padding-top: 5%;
     width: 60%;
     margin-left: 5%;
   }
