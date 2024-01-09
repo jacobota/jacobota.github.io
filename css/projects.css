@@ -1,5 +1,5 @@
 body {
-  background: url('../images/projects_page.jpg') no-repeat;
+  background: url("../images/projects_page.jpg") no-repeat;
   width: 100%;
   height: 100vh;
   background-position: center;
@@ -8,7 +8,7 @@ body {
 }
 
 .layer {
-  background-color: rgba(48,55,82, 1);
+  background-color: rgba(48, 55, 82, 1);
   top: 0%;
   width: 100%;
   height: 100vh;
@@ -17,10 +17,10 @@ body {
 }
 
 @keyframes background-load {
-    0% {
-        background-color: rgba(48,55,82, 1);
-    }
-    100% {
-        background-color: rgba(48,55,82, 0.85) 
-    }
+  0% {
+    background-color: rgba(48, 55, 82, 1);
+  }
+  100% {
+    background-color: rgba(48, 55, 82, 0.85);
+  }
 }
