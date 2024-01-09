@@ -60,7 +60,7 @@ container.onmousemove = e => {
 
     const percentage = (mouseChange / maxChange) * -100
     const continuePercentage = parseFloat(track.dataset.prevPercentage) + percentage;
-    const nextPercentage = Math.max(Math.min(continuePercentage, -10), -210);
+    const nextPercentage = Math.max(Math.min(continuePercentage, 5), -180);
 
     track.dataset.percentage = nextPercentage;
 
@@ -88,7 +88,7 @@ container.ontouchmove = e => {
 
     const percentage = (mouseChange / maxChange) * -100
     const continuePercentage = parseFloat(track.dataset.prevPercentage) + percentage;
-    const nextPercentage = Math.max(Math.min(continuePercentage, -10), -490);
+    const nextPercentage = Math.max(Math.min(continuePercentage, 5), -430);
 
     track.dataset.percentage = nextPercentage;
 
