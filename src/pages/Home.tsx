@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Page, Reveal, SectionHeading } from "../components/Motion";
 import Gallery from "../components/Gallery";
+import { projects } from "../data/projects";
+
+// Shown in the "On The Side" section, in the same order as the Projects data.
+const sideProjects = projects.filter((p) => p.title === "Park Factor" || p.title === "Trucha Fly Fishing");
 
 const stagger = {
   hidden: {},
@@ -13,7 +17,7 @@ const item = {
 };
 
 const skills = [
-  "Drupal (module development)",
+  "Drupal",
   "React",
   "React Native",
   "TypeScript",
@@ -23,6 +27,7 @@ const skills = [
   "Python",
   "SQL",
   "Tailwind CSS",
+  "AWS",
   "Git/GitHub",
   "Claude Code",
 ];
@@ -55,11 +60,11 @@ export default function Home() {
           </motion.h1>
           <motion.p variants={item} className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
             Software engineer at College Board, working in Drupal and an atomic UI design system. On the side, I
-            do contract work building sites for small businesses and I’m designing Park Factor, a mobile app that
-            turns baseball’s data into something anyone can explore.
+            do contract work building sites for small businesses, and with a team of three I’m designing Park
+            Factor, a mobile app that turns baseball’s data into something anyone can explore.
           </motion.p>
           <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
-            <Link to="/projects" className="btn btn-primary">View projects</Link>
+            <Link to="/projects" className="btn btn-ghost">View projects</Link>
             <Link to="/resume" className="btn btn-ghost">Resume</Link>
             <Link to="/contact" className="btn btn-ghost">Get in touch</Link>
           </motion.div>
@@ -82,7 +87,7 @@ export default function Home() {
 
       <section className="container-page border-t border-line py-14 sm:py-20">
         <Reveal>
-          <SectionHeading eyebrow="About" title="Engineer first, athlete and leader always" />
+          <SectionHeading eyebrow="About" title="My background" />
         </Reveal>
         <div className="max-w-3xl space-y-5 text-base leading-relaxed sm:text-lg">
           <Reveal>
@@ -97,9 +102,10 @@ export default function Home() {
           <Reveal>
             <p>
               Outside of work I build for the clients and ideas I care about. I’ve built Drupal sites that let
-              business owners manage their own content and take bookings from visitors, and I’m developing Park
-              Factor, a baseball analytics app that grew out of my master’s capstone. Its goal is to bridge the gap
-              between people and data, because the way data is delivered matters.
+              business owners manage their own content and take bookings from visitors, and I’m the software
+              engineer on a team of three building Park Factor, a baseball analytics app that grew out of a
+              master’s capstone. Our goal is to bridge the gap between people and data, because the way data is
+              delivered matters.
             </p>
           </Reveal>
           <Reveal>
@@ -152,6 +158,60 @@ export default function Home() {
             </ul>
           </div>
         </Reveal>
+      </section>
+
+      <section className="container-page border-t border-line py-14 sm:py-20">
+        <Reveal>
+          <SectionHeading eyebrow="On The Side" title="Side projects" />
+        </Reveal>
+        <div className="max-w-3xl space-y-5">
+          {sideProjects.map((p) => (
+            <Reveal key={p.title}>
+              <div className="rounded-2xl border border-line bg-surface p-5 sm:p-6">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span
+                    className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                      p.statusTone === "live"
+                        ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+                        : "bg-amber-500/10 text-amber-700 dark:text-amber-400"
+                    }`}
+                  >
+                    {p.status}
+                  </span>
+                  <span className="text-sm text-muted">
+                    {p.kind}
+                    {p.date ? ` · ${p.date}` : ""}
+                  </span>
+                </div>
+                <h3 className="mt-3 text-lg font-semibold leading-snug">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">{p.summary}</p>
+                <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed sm:text-base">
+                  {p.details.map((d) => (
+                    <li key={d}>{d}</li>
+                  ))}
+                </ul>
+                {p.links.length > 0 && (
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {p.links.map((l, i) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`btn ${i === 0 ? "btn-primary" : "btn-ghost"}`}
+                      >
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </Reveal>
+          ))}
+          <Reveal>
+            <Link to="/projects" className="btn btn-ghost">See all projects</Link>
+          </Reveal>
+        </div>
       </section>
 
       <section className="container-page border-t border-line py-14 sm:py-20">

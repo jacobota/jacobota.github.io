@@ -26,17 +26,17 @@ export const projects: Project[] = [
   // In development
   {
     title: "Park Factor",
-    kind: "Master’s Capstone & Side Project",
+    kind: "Team Side Project",
     group: "development",
     status: "In design",
     statusTone: "progress",
     summary:
-      "A baseball analytics mobile app that makes the game’s data easier for everyone to explore and brings it to life.",
+      "A baseball analytics mobile app from a team of three, making the game’s data easier for everyone to explore and bringing it to life.",
     details: [
       "Built for coaches, players, decision makers, and anyone interested in visualizing the expansive data contained within baseball",
-      "Aims to bridge the gap between people and data, because the way data is delivered matters",
-      "Developing with a team of baseball analysts and fellow engineers to bring the game’s data to life",
-      "Began as my master’s capstone at ASU, where I delivered a demo mobile app; now being designed and built out with React Native",
+      "Our goal is to bridge the gap between people and data, because the way data is delivered matters",
+      "A team of three working together to bring the game’s data to life, where I’m the software engineer for the group",
+      "Grew out of a master’s capstone at ASU that delivered a demo mobile app; our team is now designing and building it out with React Native",
     ],
     tags: ["React Native", "Mobile", "Data Visualization", "Baseball"],
     links: [],
@@ -49,6 +49,7 @@ export const projects: Project[] = [
     group: "development",
     status: "Live, rebuilding",
     statusTone: "progress",
+    date: "Summer 2022",
     summary:
       "A website for a fly fishing company, being rebuilt in Drupal so the owner can manage content and take appointment requests.",
     details: [
@@ -71,6 +72,7 @@ export const projects: Project[] = [
     group: "live",
     status: "Live",
     statusTone: "live",
+    date: "Fall 2026",
     summary:
       "A performance website for PGA golf professional Darren Black, built in Drupal so he can run his own content and take bookings.",
     details: [
@@ -107,6 +109,7 @@ export const projects: Project[] = [
     group: "completed",
     status: "Completed",
     statusTone: "done",
+    date: "April 2024",
     summary:
       "A full-stack recipe app built with a team during Revature training, using AWS services.",
     details: [

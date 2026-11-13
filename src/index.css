@@ -30,11 +30,19 @@
 
 @layer components {
   .btn {
-    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition active:scale-[0.97];
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold active:scale-[0.97];
+    /* Hover fades in and back out: colors ease over 0.5s, the press-down stays quick. */
+    transition:
+      background-color 0.5s ease,
+      border-color 0.5s ease,
+      color 0.5s ease,
+      opacity 0.5s ease,
+      transform 0.15s ease;
   }
   .btn-primary { @apply bg-accent text-white hover:opacity-90; }
   [data-theme="dark"] .btn-primary { @apply text-zinc-950; }
-  .btn-ghost { @apply border border-line bg-surface text-fg hover:border-accent hover:text-accent; }
+  .btn-ghost { @apply border border-line bg-surface text-fg hover:border-accent hover:bg-accent hover:text-white; }
+  [data-theme="dark"] .btn-ghost:hover { @apply text-zinc-950; }
   .tag { @apply rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-muted; }
   .container-page { @apply mx-auto w-full max-w-5xl px-5 sm:px-8; }
 }

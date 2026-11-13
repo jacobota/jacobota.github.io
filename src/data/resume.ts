@@ -21,7 +21,7 @@ export const header = {
 
 export const summary: string[] = [
   "Software Engineer (M.S.) at College Board building Drupal modules and contributing to an atomic UI design system through development and QA, with full-stack and AWS experience from Revature’s engineering program.",
-  "On the side, designing Park Factor, a baseball analytics mobile app that makes the game’s data easier to explore.",
+  "On the side, the software engineer on a team of three designing Park Factor, a baseball analytics mobile app that makes the game’s data easier to explore.",
   "A collaborative engineer shaped by Agile teams, QA discipline, and collegiate athletics leadership.",
 ];
 
@@ -50,10 +50,10 @@ export const experience: ResumeEntry[] = [
 export const projects: ResumeEntry[] = [
   {
     title: "Park Factor",
-    meta: ["Master’s capstone and side project, in design"],
+    meta: ["Team of three, side project, in design"],
     bullets: [
       "Baseball analytics mobile app (React Native) that makes the game’s data easier for everyone to explore",
-      "Developing with a team of baseball analysts and fellow engineers to bring the game’s data to life",
+      "Software engineer for a team of three working together to bring the game’s data to life; grew out of my ASU capstone demo app",
     ],
   },
   {

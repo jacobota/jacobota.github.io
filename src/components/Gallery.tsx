@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface Photo {
   src: string;
@@ -92,9 +92,7 @@ export default function Gallery() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {open !== null && <Lightbox index={open} onClose={close} onStep={step} />}
-      </AnimatePresence>
+      {open !== null && <Lightbox index={open} onClose={close} onStep={step} />}
     </>
   );
 }
@@ -162,12 +160,26 @@ function Lightbox({
   const closeRef = useRef<HTMLButtonElement>(null);
   const photo = photos[index];
 
+  // Fade out ourselves, then unmount. (An AnimatePresence exit animation here could fail to finish,
+  // leaving an invisible full-screen overlay and a locked page.)
+  const [closing, setClosing] = useState(false);
+  const closingRef = useRef(false);
+  const timer = useRef<number | undefined>(undefined);
+  const requestClose = useCallback(() => {
+    if (closingRef.current) return;
+    closingRef.current = true;
+    setClosing(true);
+    timer.current = window.setTimeout(onClose, 180);
+  }, [onClose]);
+
+  useEffect(() => () => window.clearTimeout(timer.current), []);
+
   useEffect(() => {
     closeRef.current?.focus();
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") requestClose();
       else if (e.key === "ArrowLeft") onStep(-1);
       else if (e.key === "ArrowRight") onStep(1);
     };
@@ -176,7 +188,7 @@ function Lightbox({
       document.body.style.overflow = prevOverflow;
       window.removeEventListener("keydown", onKey);
     };
-  }, [onClose, onStep]);
+  }, [requestClose, onStep]);
 
   const navBtn =
     "absolute top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition hover:bg-white/20 sm:flex";
@@ -188,16 +200,15 @@ function Lightbox({
       aria-label="Photo viewer"
       className="fixed inset-0 z-[70] flex items-center justify-center bg-black/90 p-4"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
-      onClick={onClose}
+      animate={{ opacity: closing ? 0 : 1 }}
+      transition={{ duration: 0.18 }}
+      onClick={requestClose}
     >
       <button
         ref={closeRef}
         type="button"
         aria-label="Close photo viewer"
-        onClick={onClose}
+        onClick={requestClose}
         className="absolute right-3 top-3 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition hover:bg-white/20"
       >
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

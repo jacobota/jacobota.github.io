@@ -3,7 +3,6 @@ import { Page, Reveal, SectionHeading } from "../components/Motion";
 import {
   education,
   experience,
-  header,
   leadership,
   projects,
   skills,
@@ -44,7 +43,6 @@ export default function Resume() {
         <div className="mb-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Resume</h1>
-            <p className="mt-3 text-muted">{header.name}</p>
           </div>
           <a href="/Jacob_Ota_Resume.pdf" download="Jacob_Ota_Resume.pdf" className="btn btn-primary self-start">
             Download PDF
