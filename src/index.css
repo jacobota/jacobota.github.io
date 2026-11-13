@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 250 250 249;
+  --surface: 255 255 255;
+  --fg: 24 24 27;
+  --muted: 100 100 110;
+  --line: 228 228 231;
+  --accent: 79 70 229;
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  --bg: 9 9 11;
+  --surface: 24 24 27;
+  --fg: 244 244 245;
+  --muted: 161 161 170;
+  --line: 44 44 50;
+  --accent: 129 140 248;
+  color-scheme: dark;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-bg font-sans text-fg antialiased; overflow-x: hidden; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-accent; outline-style: solid; }
+  ::selection { background: rgb(var(--accent) / 0.25); }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition active:scale-[0.97];
+  }
+  .btn-primary { @apply bg-accent text-white hover:opacity-90; }
+  [data-theme="dark"] .btn-primary { @apply text-zinc-950; }
+  .btn-ghost { @apply border border-line bg-surface text-fg hover:border-accent hover:text-accent; }
+  .tag { @apply rounded-full border border-line px-2.5 py-0.5 text-xs font-medium text-muted; }
+  .container-page { @apply mx-auto w-full max-w-5xl px-5 sm:px-8; }
+}
+
+/* Polaroid film tint on the gallery prints. To revert, remove the `polaroid-photo` / `polaroid-img`
+   classes from Gallery.tsx (or delete these rules). */
+.polaroid-photo { position: relative; display: block; overflow: hidden; }
+.polaroid-img {
+  filter: sepia(0.18) saturate(1.12) contrast(0.94) brightness(1.04) hue-rotate(-4deg);
+}
+.polaroid-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 55%, rgba(70, 35, 0, 0.24) 100%),
+    linear-gradient(180deg, rgba(255, 214, 150, 0.1), rgba(255, 170, 120, 0.08));
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.hide-scrollbar { scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }

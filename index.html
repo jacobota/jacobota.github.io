@@ -1,66 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jacob Ota Portfolio Website</title>
-    <link rel="stylesheet" href="../css/app.css" />
+    <title>Jacob Ota | Software Engineer</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
-    <header id="header">
-      <div id="logo"><p>Jacob Ota</p></div>
-
-      <nav class="navbar">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Resume</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <div class="home">
-      <div class="home-content">
-        <h1>Jacob Ota</h1>
-        <h3>Aspiring Software Engineer</h3>
-        <p>
-          &emsp; I am an aspiring software engineer, holding a Bachelors in Computer Science from the 
-          University of Puget Sound. Currently, I am pursuing my Masters in Software Engineering at Arizona State University, deepening 
-          my knowledge and honing my skills in this dynamic field. My academic journey has been marked by 
-          dedication and a passion for exploring the intricacies of software engineering.
-        </p>
-        <p>
-          &emsp; During my undergraduate years, I embraced a diverse set of roles. Not only was I a diligent 
-          student through my academics, but I also took on the challenges of being a collegiate baseball player and 
-          a resident assistant. The demanding schedule of a student-athlete and the responsibilities of a 
-          resident assistant taught me valuable lessons in time management, teamwork, and leadership. These 
-          experiences shaped not only my character but also strengthened my resolve to succeed in the face 
-          of adversity.
-        </p>
-        <p>
-          &emsp; As a collegiate baseball player, I encountered numerous obstacles, yet I emerged resilient 
-          and determined, showcasing my ability to thrive under pressure. My senior year stands as a testament 
-          to my commitment to excellence, where I overcame challenges and achieved success on the baseball 
-          field. Despite my achievements in sports and academics, I am eager to transition my skills into 
-          the realm of software engineering, where I am excited to contribute and grow, translating my past 
-          experiences into success in the tech industry.
-        </p>
-        <div class="button-container">
-          <div class="btn">
-            <a href="/pages/resume.html"><span>Resume</span></a>
-          </div>
-          <div class="btn">
-            <a href="/pages/projects.html"><span>Projects</span></a>
-          </div>
-          <div class="btn">
-            <a href="/pages/contact.html"><span>Contact</span></a>
-          </div>
-        </div>
-      </div>
-      <img class="home-picture" src="/images/home_image.jpg"></img>
-    </div>
-    <script src="../js/app.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
