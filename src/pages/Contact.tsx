@@ -26,7 +26,7 @@ export default function Contact() {
       <div className="container-page max-w-2xl py-12 sm:py-16">
         <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Contact</h1>
         <p className="mt-3 text-lg text-muted">
-          I’m happy in my role at College Board, but I also take on contract work as a web developer, building and
+          I’m happy in my remote role at College Board, but I also take on contract work as a web developer, building and
           reworking sites for small businesses. If you have a project in mind, email me and tell me about it.
         </p>
 

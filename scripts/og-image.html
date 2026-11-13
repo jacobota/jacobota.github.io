@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;800&family=Caveat:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { width: 1200px; height: 630px; overflow: hidden; }
+      body {
+        font-family: "Inter", system-ui, sans-serif;
+        color: #f4f4f5;
+        background:
+          radial-gradient(circle at 82% 38%, rgba(129, 140, 248, 0.32), transparent 46%),
+          radial-gradient(circle at 8% 100%, rgba(129, 140, 248, 0.14), transparent 40%),
+          #09090b;
+        position: relative;
+      }
+      .left { position: absolute; left: 84px; top: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; justify-content: center; }
+      .eyebrow { font-size: 26px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #818cf8; }
+      h1 { margin-top: 18px; font-size: 118px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+      .tag { margin-top: 26px; font-size: 34px; font-weight: 500; line-height: 1.35; color: #a1a1aa; max-width: 560px; }
+      .url { position: absolute; left: 84px; bottom: 56px; font-size: 26px; font-weight: 600; color: #818cf8; }
+      .polaroid {
+        position: absolute; right: 96px; top: 70px; width: 372px;
+        background: #fff; padding: 16px 16px 0; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+      }
+      .polaroid img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 45%;
+        filter: sepia(0.18) saturate(1.12) contrast(0.94) brightness(1.04) hue-rotate(-4deg); }
+      .caption { height: 96px; display: flex; align-items: center; justify-content: center;
+        font-family: "Caveat", cursive; font-weight: 700; font-size: 52px; color: #27272a; }
+    </style>
+  </head>
+  <body>
+    <div class="left">
+      <p class="eyebrow">Software Engineer, MS</p>
+      <h1>Jacob Ota</h1>
+      <p class="tag">Jacob Ota’s personal site: projects, resume, and a little more about me.</p>
+    </div>
+    <p class="url">jacobota.github.io</p>
+    <div class="polaroid">
+      <img src="../public/images/home_image.webp" alt="" />
+      <div class="caption">Welcome to my site</div>
+    </div>
+  </body>
+</html>

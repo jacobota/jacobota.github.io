@@ -15,6 +15,8 @@ export default {
         muted: "rgb(var(--muted) / <alpha-value>)",
         line: "rgb(var(--line) / <alpha-value>)",
         accent: "rgb(var(--accent) / <alpha-value>)",
+        polaroid: "rgb(var(--polaroid) / <alpha-value>)",
+        "polaroid-ink": "rgb(var(--polaroid-ink) / <alpha-value>)",
       },
     },
   },

@@ -31,7 +31,6 @@ function Caption({ text }: { text: string }) {
 const plain = (caption: string) => caption.replace(/♥/g, "heart");
 
 const P = "aspect-[4/5]";
-const L = "aspect-[4/3]";
 
 // photos[0] is the featured print shown alone, larger, above the rest. The next four are row 1, the last four row 2.
 const photos: Photo[] = [
@@ -39,13 +38,13 @@ const photos: Photo[] = [
   // Row 1
   { src: "/images/dog_kiss.webp", alt: "Kissing a small dog held between them in front of a turquoise lake", pos: "50% 40%", tilt: 2.5, ratio: P, caption: "Our little Millie" },
   { src: "/images/family.webp", alt: "Posing with family in formal wear at sunset", pos: "50% 35%", tilt: -2.5, ratio: P, caption: "Family ♥" },
-  { src: "/images/table_group.webp", alt: "Seven friends in formal wear posing around a dinner table", pos: "50% 35%", tilt: 1.5, ratio: P, caption: "Getting the gang back together" },
+  { src: "/images/table_group.webp", alt: "Seven friends in formal wear posing around a dinner table", pos: "50% 35%", tilt: 1.5, ratio: P, caption: "Great friends, great times" },
   { src: "/images/me_and_jax.webp", alt: "Two baseball players embracing in the outfield", pos: "58% 50%", tilt: -3, ratio: P, caption: "Loggers for Life" },
   // Row 2
   { src: "/images/nationals_game.webp", alt: "Posing together in the stands at a baseball game at night", pos: "50% 58%", tilt: -3, ratio: P, caption: "Baseball stadium touring" },
-  { src: "/images/street_trio.webp", alt: "Three friends posing together on a city sidewalk", pos: "50% 45%", tilt: 2, ratio: P, caption: "Meetup with Troy Melton" },
-  { src: "/images/golf_selfie.webp", alt: "Four friends in a selfie on a golf course by the water", pos: "45% 45%", tilt: -1.5, ratio: L, caption: "Golf with Friends" },
-  { src: "/images/hike_group.webp", alt: "Seven friends in a group selfie on a mountain hike", pos: "50% 50%", tilt: 3, ratio: L, caption: "Hike with Marmots" },
+  { src: "/images/street_trio.webp", alt: "Three friends posing together on a city sidewalk", pos: "50% 45%", tilt: 2, ratio: P, caption: "Teammate turned MLB pitcher: Troy Melton" },
+  { src: "/images/golf_selfie.webp", alt: "Four friends in a selfie on a golf course by the water", pos: "45% 45%", tilt: -1.5, ratio: "aspect-square", caption: "Golf with Friends" },
+  { src: "/images/hike_group.webp", alt: "Seven friends in a group selfie on a mountain hike", pos: "50% 50%", tilt: 3, ratio: "aspect-[5/4]", caption: "Hike with Marmots" },
 ];
 
 export default function Gallery() {
@@ -122,7 +121,7 @@ function Print({
       whileTap={{ scale: 0.98 }}
       viewport={{ once: true, margin: "0px 0px -40px 0px" }}
       transition={{ duration: 0.5, ease: "easeOut", delay: featured ? 0 : ((index - 1) % 4) * 0.07 }}
-      className={`relative bg-white p-2 shadow-lg shadow-black/25 sm:p-2.5 ${featured ? "md:p-3" : ""} ${className}`}
+      className={`relative bg-polaroid p-2 shadow-lg shadow-black/25 sm:p-2.5 ${featured ? "md:p-3" : ""} ${className}`}
     >
       <span className="polaroid-photo">
         <img
@@ -136,7 +135,7 @@ function Print({
       </span>
       {/* Handwritten message on the print's bottom strip. */}
       <span
-        className={`flex items-center justify-center text-balance px-1 text-center font-hand font-semibold leading-tight text-zinc-800 ${
+        className={`flex items-center justify-center text-balance px-1 text-center font-hand font-semibold leading-tight text-polaroid-ink ${
           featured
             ? "min-h-[3.5rem] pb-2 pt-3 text-2xl sm:text-3xl md:min-h-[4.5rem] md:text-4xl"
             : "min-h-[2.75rem] pb-1 pt-2 text-lg sm:min-h-[3.25rem] sm:text-xl md:text-2xl"

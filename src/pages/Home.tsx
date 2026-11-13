@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Page, Reveal, SectionHeading } from "../components/Motion";
 import Gallery from "../components/Gallery";
+import SkillChip from "../components/SkillChip";
 import { projects } from "../data/projects";
 
 // Shown in the "On The Side" section, in the same order as the Projects data.
@@ -50,7 +51,12 @@ const education = [
 export default function Home() {
   return (
     <Page>
-      <section className="container-page grid items-center gap-10 py-12 sm:py-20 md:grid-cols-[1.3fr_1fr] md:gap-14">
+      <section className="container-page relative isolate grid items-center gap-10 py-12 sm:py-20 md:grid-cols-[1.3fr_1fr] md:gap-14">
+        {/* soft accent glow behind the hero only (decorative; absolutely positioned so it isn't a grid item) */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -right-10 top-2 h-80 w-80 rounded-full bg-accent/40 blur-3xl md:h-[27rem] md:w-[27rem]" />
+          <div className="absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
+        </div>
         <motion.div variants={stagger} initial="hidden" animate="show" className="order-2 md:order-1">
           <motion.p variants={item} className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent">
             Software Engineer, MS
@@ -59,7 +65,7 @@ export default function Home() {
             Hi, I’m Jacob Ota.
           </motion.h1>
           <motion.p variants={item} className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-            Software engineer at College Board, working in Drupal and an atomic UI design system. On the side, I
+            Remote software engineer at College Board, working in Drupal and an atomic UI design system. On the side, I
             do contract work building sites for small businesses, and with a team of three I’m designing Park
             Factor, a mobile app that turns baseball’s data into something anyone can explore.
           </motion.p>
@@ -70,19 +76,29 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="order-1 mx-auto w-full max-w-[16rem] md:order-2 md:max-w-none"
-        >
-          <img
-            src="/images/home_image.webp"
-            alt="Portrait of Jacob Ota in a graduation gown"
-            className="aspect-[4/5] w-full rounded-3xl object-cover shadow-xl shadow-black/10 ring-1 ring-line"
-            style={{ objectPosition: "50% 30%" }}
-          />
-        </motion.div>
+        {/* Hero portrait as a straight polaroid. Decorative only: not a link, no hover effect, and not
+            part of the gallery or its lightbox. It just rises into place on load. */}
+        <div className="order-1 flex justify-center md:order-2">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative w-full max-w-[17rem] bg-polaroid p-3 shadow-xl shadow-black/30 sm:max-w-[19rem] md:max-w-[22rem]"
+          >
+            <span className="polaroid-photo">
+              <img
+                src="/images/home_image.webp"
+                alt="Portrait of Jacob Ota smiling in a maroon polo"
+                className="polaroid-img aspect-[4/5] w-full object-cover"
+                style={{ objectPosition: "50% 45%" }}
+              />
+            </span>
+            {/* handwritten message on the print's bottom strip, same font as the gallery captions */}
+            <span className="flex min-h-[3.75rem] items-center justify-center pb-1 pt-3 text-center font-hand text-3xl font-semibold leading-tight text-polaroid-ink md:min-h-[4.25rem] md:text-4xl">
+              Welcome to my site
+            </span>
+          </motion.div>
+        </div>
       </section>
 
       <section className="container-page border-t border-line py-14 sm:py-20">
@@ -94,7 +110,7 @@ export default function Home() {
             <p>
               I’m a software engineer with a B.S. in Computer Science from the University of Puget Sound and an
               M.S. in Software Engineering from Arizona State University, which I completed in July 2025. Since
-              May 2024 I’ve been at College Board, where I work in Drupal and our atomic UI design system. I love
+              May 2024 I’ve worked remotely at College Board in Drupal and our atomic UI design system. I love
               work that sits where careful engineering meets real people: building modules and interfaces that
               students and educators actually use, and making sure they hold up through thorough QA.
             </p>
@@ -127,10 +143,15 @@ export default function Home() {
         <Reveal>
           <div className="max-w-3xl rounded-2xl border border-line bg-surface p-5 sm:p-6">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+                {/* pulsing "live" dot; the pulse is off for reduced-motion users */}
+                <span className="relative flex h-2 w-2" aria-hidden>
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60 motion-reduce:animate-none" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                </span>
                 Current role
               </span>
-              <span className="text-sm text-muted">May 2024 – Present</span>
+              <span className="text-sm text-muted">May 2024 – Present · Remote</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
               I came to College Board through Revature, starting in January 2024 with an intensive training program
@@ -190,21 +211,6 @@ export default function Home() {
                     <li key={d}>{d}</li>
                   ))}
                 </ul>
-                {p.links.length > 0 && (
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    {p.links.map((l, i) => (
-                      <a
-                        key={l.href}
-                        href={l.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`btn ${i === 0 ? "btn-primary" : "btn-ghost"}`}
-                      >
-                        {l.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
               </div>
             </Reveal>
           ))}
@@ -221,9 +227,7 @@ export default function Home() {
         <Reveal>
           <ul className="flex max-w-3xl flex-wrap gap-2">
             {skills.map((s) => (
-              <li key={s} className="rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium">
-                {s}
-              </li>
+              <SkillChip key={s} name={s} />
             ))}
           </ul>
         </Reveal>

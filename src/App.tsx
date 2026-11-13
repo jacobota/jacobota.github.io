@@ -7,6 +7,7 @@ import Resume from "./pages/Resume";
 import ResumePrint from "./pages/ResumePrint";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
 
 const titles: Record<string, string> = {
   "/": "Jacob Ota | Software Engineer",
@@ -29,7 +30,9 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (!isPrint) document.title = titles[location.pathname] ?? titles["/"];
+    if (isPrint) return;
+    const path = location.pathname.replace(/\/+$/, "") || "/";
+    document.title = titles[path] ?? "Page not found | Jacob Ota";
   }, [location.pathname, isPrint]);
 
   // Every tab change starts at the top. The main trigger is AnimatePresence's onExitComplete below
@@ -53,7 +56,7 @@ export default function App() {
             <Route path="/resume" element={<Resume />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
       </Layout>

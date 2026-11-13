@@ -9,6 +9,9 @@
   --muted: 100 100 110;
   --line: 228 228 231;
   --accent: 79 70 229;
+  /* Polaroid prints: charcoal with white writing on the light page, classic white on the dark page. */
+  --polaroid: 62 62 68;
+  --polaroid-ink: 255 255 255;
   color-scheme: light;
 }
 [data-theme="dark"] {
@@ -18,6 +21,8 @@
   --muted: 161 161 170;
   --line: 44 44 50;
   --accent: 129 140 248;
+  --polaroid: 255 255 255;
+  --polaroid-ink: 39 39 42;
   color-scheme: dark;
 }
 

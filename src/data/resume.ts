@@ -20,7 +20,7 @@ export const header = {
 };
 
 export const summary: string[] = [
-  "Software Engineer (M.S.) at College Board building Drupal modules and contributing to an atomic UI design system through development and QA, with full-stack and AWS experience from Revature’s engineering program.",
+  "Remote Software Engineer (M.S.) at College Board building Drupal modules and contributing to an atomic UI design system through development and QA, with full-stack and AWS experience from Revature’s engineering program.",
   "On the side, the software engineer on a team of three designing Park Factor, a baseball analytics mobile app that makes the game’s data easier to explore.",
   "A collaborative engineer shaped by Agile teams, QA discipline, and collegiate athletics leadership.",
 ];
@@ -28,7 +28,7 @@ export const summary: string[] = [
 export const experience: ResumeEntry[] = [
   {
     title: "Engineer 1",
-    org: "College Board",
+    org: "College Board (Remote)",
     date: "May 2024 – Present",
     bullets: [
       "Develop custom Drupal modules, including a widget that lets users connect with an AI assistant or a live agent",
