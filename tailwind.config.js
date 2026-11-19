@@ -7,6 +7,7 @@ export default {
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         hand: ["Caveat", "Segoe Script", "Bradley Hand", "cursive"],
+        terminal: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
       },
       colors: {
         bg: "rgb(var(--bg) / <alpha-value>)",

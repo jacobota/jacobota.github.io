@@ -50,7 +50,10 @@ export default function App() {
     // reducedMotion="user" disables transform animations for users who ask for it
     <MotionConfig reducedMotion="user">
       <Layout>
-        <AnimatePresence mode="wait" initial={false} onExitComplete={scrollToTop}>
+        {/* No `initial={false}` here: that would make every animation on the first page load skip its
+            starting position (the hero headline, the hero text, the portrait's rise), so they would only
+            ever play when navigating between tabs. */}
+        <AnimatePresence mode="wait" onExitComplete={scrollToTop}>
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/resume" element={<Resume />} />
