@@ -50,6 +50,8 @@ const photos: Photo[] = [
 
 export default function Gallery() {
   const [open, setOpen] = useState<number | null>(null);
+  // The print being hovered or focused. While one is, the others dim and shrink a little so it stands out.
+  const [spot, setSpot] = useState<number | null>(null);
   const lastTile = useRef<HTMLButtonElement | null>(null);
 
   const close = useCallback(() => {
@@ -68,6 +70,8 @@ export default function Gallery() {
             photo={photos[0]}
             index={0}
             featured
+            dimmed={spot !== null && spot !== 0}
+            onSpot={(on) => setSpot((s) => (on ? 0 : s === 0 ? null : s))}
             onOpen={(el) => {
               lastTile.current = el;
               setOpen(0);
@@ -82,6 +86,8 @@ export default function Gallery() {
               key={p.src}
               photo={p}
               index={j + 1}
+              dimmed={spot !== null && spot !== j + 1}
+              onSpot={(on) => setSpot((s) => (on ? j + 1 : s === j + 1 ? null : s))}
               onOpen={(el) => {
                 lastTile.current = el;
                 setOpen(j + 1);
@@ -101,12 +107,18 @@ function Print({
   photo: p,
   index,
   featured = false,
+  dimmed,
+  onSpot,
   onOpen,
   className = "",
 }: {
   photo: Photo;
   index: number;
   featured?: boolean;
+  /** Another print is being hovered or focused: step back a little. */
+  dimmed: boolean;
+  /** Report this print being hovered or focused (true) or released (false). */
+  onSpot: (on: boolean) => void;
   onOpen: (el: HTMLButtonElement) => void;
   className?: string;
 }) {
@@ -125,6 +137,12 @@ function Print({
       aria-label={`Open photo: ${plain(p.caption)}. ${p.alt}`}
       onClick={(e) => onOpen(e.currentTarget)}
       initial={{ rotate: p.tilt }}
+      animate={{ opacity: dimmed ? 0.5 : 1, scale: dimmed ? 0.96 : 1 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      onHoverStart={() => onSpot(true)}
+      onHoverEnd={() => onSpot(false)}
+      onFocus={() => onSpot(true)}
+      onBlur={() => onSpot(false)}
       whileHover={{ rotate: 0, scale: featured ? 1.03 : 1.05, zIndex: 10 }}
       whileFocus={{ rotate: 0, scale: featured ? 1.03 : 1.05, zIndex: 10 }}
       whileTap={{ scale: 0.98 }}

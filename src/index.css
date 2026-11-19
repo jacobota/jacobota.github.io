@@ -52,6 +52,20 @@
   .container-page { @apply mx-auto w-full max-w-5xl px-5 sm:px-8; }
 }
 
+/* Theme toggle sunrise/sunset wipe (see ThemeToggle.tsx): turn off the browser's default cross-fade so the
+   wipe is the only transition, with the new theme on top. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
 /* Terminal intro cursor (see TerminalIntro.tsx): a solid block that blinks while idle. */
 .term-cursor {
   display: inline-block;

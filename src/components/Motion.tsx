@@ -45,9 +45,10 @@ const EASE = [0.22, 1, 0.36, 1] as const; // soft ease-out
 
 // Tuning knobs --------------------------------------------------------------------------------
 const SLIDE = 32; // px each block travels up as it appears
-const DURATION = 0.9; // seconds for the entrance
-const BASE_DELAY = 0.12; // pause before a block (or the first of a cascade) starts moving
-const STEP = 0.16; // gap between blocks in a cascade
+const DURATION = 1.2; // seconds for the entrance (a little slower than before)
+const BASE_DELAY = 0; // pause before a block (or the first of a cascade) starts moving: none, it starts right away
+const STEP = 0.16; // gap between blocks in a cascade (the sequencing between neighbors)
+const UP_EXTRA_DELAY = 0; // extra pause before the reverse reveal when scrolling up: none
 // Top edge = bottom of the sticky header; bottom edge sits ~16% up from the screen bottom so a block
 // starts animating once it is clearly on screen, not while it is still a sliver at the edge.
 const ROOT_MARGIN = "-72px 0px -16% 0px";
@@ -117,9 +118,11 @@ function useGroup(step: number, delay: number): Group {
                     ? b.e.boundingClientRect.top - a.e.boundingClientRect.top
                     : a.e.boundingClientRect.top - b.e.boundingClientRect.top,
                 );
+              // Scrolling up gets a slightly longer pause before the reverse cascade begins.
+              const lead = d + (scrollingUp ? UP_EXTRA_DELAY : 0);
               entering.forEach((r, i) => {
                 r.item.state = "visible";
-                r.item.apply("visible", d + i * s);
+                r.item.apply("visible", lead + i * s);
               });
 
               for (const r of rows.filter((r) => !r.e.isIntersecting)) {

@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Page, SectionHeading, Stagger, StaggerItem } from "../components/Motion";
-import TerminalIntro from "../components/TerminalIntro";
+import TerminalIntro, { introHasPlayed } from "../components/TerminalIntro";
 import Gallery from "../components/Gallery";
 import { DevelopingPhoto, useDevelop } from "../components/Develop";
 import SkillChip from "../components/SkillChip";
+import StatusBadge from "../components/StatusBadge";
 import { projects } from "../data/projects";
 
 // Shown in the "On The Side" section, in the same order as the Projects data.
@@ -56,7 +57,10 @@ const education = [
 export default function Home() {
   // The terminal intro in the hero plays first. When it has finished (or was skipped), the paragraph and
   // buttons fade in and the black portrait gives its shake and develops.
-  const [introDone, setIntroDone] = useState(false);
+  // If it has already run this visit (e.g. you switched tabs and came back), none of the hero's entrance
+  // replays: the headline, text, buttons and portrait are simply there.
+  const [introSeen] = useState(introHasPlayed);
+  const [introDone, setIntroDone] = useState(introSeen);
   const hero = useDevelop<HTMLDivElement>("hero", { auto: true, enabled: introDone, delay: 0.3 });
 
   return (
@@ -68,20 +72,21 @@ export default function Home() {
           <div className="absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
         </div>
         <div className="order-2 md:order-1">
+          <TerminalIntro onDone={() => setIntroDone(true)} />
+          {/* The label sits under the headline and appears with the rest of the hero text, once the intro is done. */}
           <motion.p
             variants={item}
-            custom={0.1}
-            initial="hidden"
-            animate="show"
-            className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent"
+            custom={0}
+            initial={introSeen ? false : "hidden"}
+            animate={introDone ? "show" : "hidden"}
+            className="mt-2 text-sm font-semibold uppercase tracking-wider text-accent"
           >
             Software Engineer, MS
           </motion.p>
-          <TerminalIntro onDone={() => setIntroDone(true)} />
           <motion.p
             variants={item}
-            custom={0.1}
-            initial="hidden"
+            custom={0.15}
+            initial={introSeen ? false : "hidden"}
             animate={introDone ? "show" : "hidden"}
             className="mt-5 max-w-xl text-lg leading-relaxed text-muted"
           >
@@ -92,7 +97,7 @@ export default function Home() {
           <motion.div
             variants={item}
             custom={0.3}
-            initial="hidden"
+            initial={introSeen ? false : "hidden"}
             animate={introDone ? "show" : "hidden"}
             className="mt-8 flex flex-wrap gap-3"
           >
@@ -107,7 +112,7 @@ export default function Home() {
             gets a little shake and develops (once per visit; see Develop.tsx). */}
         <div className="order-1 flex justify-center md:order-2">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={introSeen ? false : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="w-full max-w-[17rem] sm:max-w-[19rem] md:max-w-[22rem]"
@@ -225,15 +230,7 @@ export default function Home() {
             <StaggerItem key={p.title}>
               <div className="card-lift rounded-2xl border border-line bg-surface p-5 sm:p-6">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span
-                    className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
-                      p.statusTone === "live"
-                        ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                        : "bg-amber-500/10 text-amber-700 dark:text-amber-400"
-                    }`}
-                  >
-                    {p.status}
-                  </span>
+                  <StatusBadge tone={p.statusTone} status={p.status} />
                   <span className="text-sm text-muted">
                     {p.kind}
                     {p.date ? ` · ${p.date}` : ""}

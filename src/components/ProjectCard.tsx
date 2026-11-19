@@ -1,12 +1,7 @@
 import { useId, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Project } from "../data/projects";
-
-const tone = {
-  live: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400",
-  progress: "bg-amber-500/10 text-amber-700 dark:text-amber-400",
-  done: "bg-zinc-500/10 text-muted",
-} as const;
+import StatusBadge from "./StatusBadge";
 
 export default function ProjectCard({ project: p }: { project: Project }) {
   const [open, setOpen] = useState(false);
@@ -22,7 +17,7 @@ export default function ProjectCard({ project: p }: { project: Project }) {
         className="flex w-full flex-col gap-3 rounded-2xl p-5 text-left sm:p-6"
       >
         <div className="flex flex-wrap items-center gap-2">
-          <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${tone[p.statusTone]}`}>{p.status}</span>
+          <StatusBadge tone={p.statusTone} status={p.status} />
           <span className="text-xs text-muted">
             {p.kind}
             {p.date ? ` · ${p.date}` : ""}

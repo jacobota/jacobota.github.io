@@ -17,8 +17,15 @@ import { useReducedMotion } from "framer-motion";
 
 const FINAL_TEXT = "Hi, I’m Jacob Ota.";
 
-/** True once the intro has played during this visit. */
+/**
+ * True once the intro has started during this visit. It is set as soon as it begins (not when it ends), so
+ * leaving the page partway through and coming back doesn't restart it. Lives in memory: a reload or a new
+ * session resets it.
+ */
 let played = false;
+
+/** Whether the intro has already run this visit (the rest of the hero uses this to skip its entrance too). */
+export const introHasPlayed = () => played;
 
 type Step =
   | { kind: "type"; prompt?: "shell" | "claude"; text: string; speed: number; lead: number; hold: number; final?: boolean }
@@ -43,7 +50,9 @@ const FINAL_VIEW: View = { step: STEPS.length - 1, chars: FINAL_TEXT.length, bla
 
 export default function TerminalIntro({ onDone }: { onDone?: () => void }) {
   const reduce = useReducedMotion();
-  const instant = !!reduce || played;
+  // Decided once, when the component first appears. (It must not be re-read on later renders: the flag
+  // flips to true as soon as the intro starts, which would make a running intro cancel itself.)
+  const [instant] = useState(() => !!reduce || played);
   const [view, setView] = useState<View>(instant ? FINAL_VIEW : { step: 0, chars: 0, blank: true, cursor: "none" });
   const [done, setDone] = useState(instant);
   const stop = useRef<(() => void) | null>(null);
@@ -62,6 +71,7 @@ export default function TerminalIntro({ onDone }: { onDone?: () => void }) {
       onDoneRef.current?.();
       return;
     }
+    played = true; // from here on, coming back to this page shows the finished headline
     let cancelled = false;
     const timers = new Set<number>();
     const sleep = (ms: number) =>
@@ -168,7 +178,7 @@ export default function TerminalIntro({ onDone }: { onDone?: () => void }) {
           type="button"
           onClick={skip}
           aria-label="Skip the intro animation"
-          className="absolute bottom-0 right-0 font-terminal text-xs leading-none text-muted transition-colors hover:text-fg sm:text-sm"
+          className="absolute left-0 top-full mt-3 font-terminal text-xs leading-none text-muted transition-colors hover:text-fg sm:text-sm"
         >
           skip ↵
         </button>

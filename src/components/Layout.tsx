@@ -1,11 +1,13 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
+import RouteProgress from "./RouteProgress";
 import { contact } from "../data/contact";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="flex min-h-[100dvh] flex-col">
+      <RouteProgress />
       <a
         href="#main"
         className="sr-only z-[60] rounded-md bg-accent px-3 py-2 text-white focus:not-sr-only focus:fixed focus:left-3 focus:top-3"
