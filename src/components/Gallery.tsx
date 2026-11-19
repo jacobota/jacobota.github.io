@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { DevelopingPhoto, useDevelop } from "./Develop";
 
 interface Photo {
   src: string;
@@ -109,40 +110,50 @@ function Print({
   onOpen: (el: HTMLButtonElement) => void;
   className?: string;
 }) {
+  // The photo starts black; when this print is scrolled to it shakes and develops (see Develop.tsx).
+  // Prints in the same row start a beat apart so they develop in a cascade.
+  const dev = useDevelop<HTMLButtonElement>(p.src, {
+    delay: featured ? 0 : ((index - 1) % 4) * 0.18,
+  });
+
   return (
+    // Outer button: the print's resting tilt, hover and click. Inner frame: the shake (kept separate so
+    // the wobble moves around the print's tilt instead of replacing it).
     <motion.button
+      ref={dev.frameRef}
       type="button"
       aria-label={`Open photo: ${plain(p.caption)}. ${p.alt}`}
       onClick={(e) => onOpen(e.currentTarget)}
-      initial={{ opacity: 0, y: 28, rotate: p.tilt * 2 }}
-      whileInView={{ opacity: 1, y: 0, rotate: p.tilt }}
+      initial={{ rotate: p.tilt }}
       whileHover={{ rotate: 0, scale: featured ? 1.03 : 1.05, zIndex: 10 }}
       whileFocus={{ rotate: 0, scale: featured ? 1.03 : 1.05, zIndex: 10 }}
       whileTap={{ scale: 0.98 }}
-      viewport={{ once: true, margin: "0px 0px -40px 0px" }}
-      transition={{ duration: 0.5, ease: "easeOut", delay: featured ? 0 : ((index - 1) % 4) * 0.07 }}
-      className={`relative bg-polaroid p-2 shadow-lg shadow-black/25 sm:p-2.5 ${featured ? "md:p-3" : ""} ${className}`}
+      className={`relative block w-full ${className}`}
     >
-      <span className="polaroid-photo">
-        <img
-          src={p.src}
-          alt=""
-          loading={featured ? "eager" : "lazy"}
-          draggable={false}
-          style={{ objectPosition: p.pos }}
-          className={`polaroid-img ${p.ratio} w-full object-cover`}
-        />
-      </span>
-      {/* Handwritten message on the print's bottom strip. */}
-      <span
-        className={`flex items-center justify-center text-balance px-1 text-center font-hand font-semibold leading-tight text-polaroid-ink ${
-          featured
-            ? "min-h-[3.5rem] pb-2 pt-3 text-2xl sm:text-3xl md:min-h-[4.5rem] md:text-4xl"
-            : "min-h-[2.75rem] pb-1 pt-2 text-lg sm:min-h-[3.25rem] sm:text-xl md:text-2xl"
-        }`}
+      <motion.div
+        animate={dev.shake}
+        className={`bg-polaroid p-2 shadow-lg shadow-black/25 sm:p-2.5 ${featured ? "md:p-3" : ""}`}
       >
-        <Caption text={p.caption} />
-      </span>
+        <DevelopingPhoto
+          src={p.src}
+          pos={p.pos}
+          className={p.ratio}
+          developed={dev.developed}
+          alreadySeen={dev.alreadySeen}
+          onReady={dev.onImageReady}
+          eager={featured}
+        />
+        {/* Handwritten message on the print's bottom strip. */}
+        <span
+          className={`flex items-center justify-center text-balance px-1 text-center font-hand font-semibold leading-tight text-polaroid-ink ${
+            featured
+              ? "min-h-[3.5rem] pb-2 pt-3 text-2xl sm:text-3xl md:min-h-[4.5rem] md:text-4xl"
+              : "min-h-[2.75rem] pb-1 pt-2 text-lg sm:min-h-[3.25rem] sm:text-xl md:text-2xl"
+          }`}
+        >
+          <Caption text={p.caption} />
+        </span>
+      </motion.div>
     </motion.button>
   );
 }

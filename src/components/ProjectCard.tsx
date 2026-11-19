@@ -13,7 +13,7 @@ export default function ProjectCard({ project: p }: { project: Project }) {
   const panelId = useId();
 
   return (
-    <article className="rounded-2xl border border-line bg-surface transition-shadow hover:shadow-lg hover:shadow-black/5">
+    <article className="card-lift rounded-2xl border border-line bg-surface">
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}

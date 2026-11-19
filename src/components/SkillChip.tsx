@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+import { StaggerItem } from "./Motion";
 import {
   siAmazonwebservices,
   siClaude,
@@ -36,7 +38,7 @@ const icons: Record<string, Icon> = {
 function IconGlyph({ icon }: { icon: Icon }) {
   if ("path" in icon) {
     return (
-      <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0" fill="currentColor" style={{ color: icon.color }} aria-hidden>
+      <svg viewBox="0 0 24 24" className="skill-icon h-4 w-4 shrink-0" fill="currentColor" style={{ color: icon.color }} aria-hidden>
         <path d={icon.path} />
       </svg>
     );
@@ -44,7 +46,7 @@ function IconGlyph({ icon }: { icon: Icon }) {
   if ("text" in icon) {
     return (
       <span
-        className="flex h-4 w-4 shrink-0 items-center justify-center text-[11px] font-extrabold leading-none"
+        className="skill-icon flex h-4 w-4 shrink-0 items-center justify-center text-[11px] font-extrabold leading-none"
         style={{ color: icon.color }}
         aria-hidden
       >
@@ -56,7 +58,7 @@ function IconGlyph({ icon }: { icon: Icon }) {
     return (
       <svg
         viewBox="0 0 24 24"
-        className="h-4 w-4 shrink-0"
+        className="skill-icon h-4 w-4 shrink-0"
         fill="none"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -75,7 +77,7 @@ function IconGlyph({ icon }: { icon: Icon }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0"
+      className="skill-icon h-4 w-4 shrink-0"
       fill="none"
       stroke="currentColor"
       strokeWidth="2"
@@ -91,12 +93,25 @@ function IconGlyph({ icon }: { icon: Icon }) {
   );
 }
 
+// The color a chip's border and glow take on hover: the tool's brand color (Java: its orange; chips
+// without one fall back to the site accent).
+function chipColor(name: string, icon?: Icon): string | undefined {
+  if (name === "Java") return "#F89820";
+  return icon && "color" in icon ? icon.color : undefined;
+}
+
 export default function SkillChip({ name }: { name: string }) {
   const icon = icons[name];
+  const color = chipColor(name, icon);
   return (
-    <li className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium">
+    // Part of the Skills section's Stagger: chips cascade in one at a time.
+    <StaggerItem
+      as="li"
+      style={color ? ({ "--chip": color } as CSSProperties) : undefined}
+      className="skill-chip inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-sm font-medium"
+    >
       {icon && <IconGlyph icon={icon} />}
       {name}
-    </li>
+    </StaggerItem>
   );
 }
